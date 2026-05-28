@@ -1,0 +1,97 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-navy text-white font-inter antialiased overflow-x-hidden selection:bg-gold selection:text-navy;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+/* Custom Utilities & Premium Effects */
+@layer utilities {
+  .text-shadow-gold {
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.3);
+  }
+  
+  .glass-card {
+    background: rgba(11, 31, 58, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(212, 175, 55, 0.15);
+  }
+
+  .glass-card-hover {
+    @apply transition-all duration-500 ease-out;
+  }
+  
+  .glass-card-hover:hover {
+    background: rgba(27, 53, 90, 0.85);
+    border-color: rgba(212, 175, 55, 0.4);
+    box-shadow: 0 10px 30px -10px rgba(212, 175, 55, 0.2);
+    transform: translateY(-6px);
+  }
+
+  .gold-border-glow {
+    box-shadow: 0 0 15px rgba(212, 175, 55, 0.2);
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+
+  .gold-button {
+    @apply relative overflow-hidden bg-gradient-to-r from-gold via-gold-light to-gold text-navy font-semibold px-6 py-3 rounded-full shadow-lg shadow-gold/20 hover:shadow-gold/40 transition-all duration-300 transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95;
+  }
+
+  .gold-button::before {
+    content: '';
+    @apply absolute top-0 -left-[100%] w-[50%] h-full bg-gradient-to-r from-transparent via-white/40 to-transparent skew-x-[-25deg] transition-all duration-1000;
+  }
+
+  .gold-button:hover::before {
+    animation: shine 1.5s infinite ease-in-out;
+  }
+
+  .outline-gold-button {
+    @apply border border-gold/50 text-gold hover:text-navy hover:bg-gold px-6 py-3 rounded-full transition-all duration-300 font-semibold transform hover:-translate-y-0.5 active:translate-y-0 active:scale-95 shadow-md shadow-gold/5 hover:shadow-gold/20;
+  }
+
+  .section-padding {
+    @apply py-20 px-6 max-w-7xl mx-auto;
+  }
+}
+
+/* Custom animations */
+@keyframes shine {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 200%;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #051020;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D4AF37;
+  border-radius: 5px;
+  border: 2px solid #051020;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #EAD180;
+}
